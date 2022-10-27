@@ -26,7 +26,7 @@ namespace wa_todolist_backend.Repository
     public async Task<TaskModel> Add(TaskModel task)
     {
       await _dbContext.Tasks.AddAsync(task);
-      _dbContext.SaveChanges();
+      await _dbContext.SaveChangesAsync();
 
       return task;
     }
@@ -44,7 +44,7 @@ namespace wa_todolist_backend.Repository
         taskById.IsCompleted = task.IsCompleted;
 
         _dbContext.Tasks.Update(taskById);
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
 
         return taskById;
     }
@@ -59,7 +59,7 @@ namespace wa_todolist_backend.Repository
         }
 
         _dbContext.Tasks.Remove(taskById);
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
 
         return true;
     }
