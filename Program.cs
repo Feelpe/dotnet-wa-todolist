@@ -12,9 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddEntityFrameworkSqlServer()
+builder.Services.AddEntityFrameworkNpgsql()
     .AddDbContext<TasksSystemDBContext>(
-        options => options.UseSqlServer(builder.Configuration.GetConnectionString("DataBase"))
+        options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default"))
     );
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();

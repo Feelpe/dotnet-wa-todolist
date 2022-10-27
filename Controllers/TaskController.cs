@@ -15,23 +15,23 @@ namespace wa_todolist_backend.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<TaskModel>>> GetAll()
+        public async Task<ActionResult<List<TaskModel>>> Get()
         {
-            List<TaskModel> tasks = await _taskRepository.GetAll();
+            List<TaskModel> tasks = await _taskRepository.Get();
             return Ok(tasks);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<TaskModel>> ById(int id)
+        public async Task<ActionResult<TaskModel>> GetById(int id)
         {
-            TaskModel task = await _taskRepository.ById(id);
+            TaskModel task = await _taskRepository.GetById(id);
             return Ok(task);
         }
         
         [HttpPost]
-        public async Task<ActionResult<TaskModel>> Add([FromBody] TaskModel taskModel)
+        public async Task<ActionResult<TaskModel>> Post([FromBody] TaskModel taskModel)
         {
-            TaskModel task = await _taskRepository.Add(taskModel);
+            TaskModel task = await _taskRepository.Post(taskModel);
             return Ok(task);
         }
 

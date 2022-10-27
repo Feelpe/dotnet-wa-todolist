@@ -13,17 +13,17 @@ namespace wa_todolist_backend.Repository
         _dbContext = tasksSystemDBContext;
     }
 
-    public async Task<List<TaskModel>> GetAll()
+    public async Task<List<TaskModel>> Get()
     {
       return await _dbContext.Tasks.ToListAsync();
     }
 
-    public async Task<TaskModel> ById(int id)
+    public async Task<TaskModel> GetById(int id)
     {
       return await _dbContext.Tasks.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task<TaskModel> Add(TaskModel task)
+    public async Task<TaskModel> Post(TaskModel task)
     {
       await _dbContext.Tasks.AddAsync(task);
       await _dbContext.SaveChangesAsync();
@@ -33,7 +33,7 @@ namespace wa_todolist_backend.Repository
 
     public async Task<TaskModel> Update(TaskModel task, int id)
     {
-        TaskModel taskById = await ById(id);
+        TaskModel taskById = await GetById(id);
 
         if(taskById == null)
         {
@@ -51,7 +51,7 @@ namespace wa_todolist_backend.Repository
 
     public async Task<bool> Delete(int id)
     {
-        TaskModel taskById = await ById(id);
+        TaskModel taskById = await GetById(id);
 
         if(taskById == null)
         {
