@@ -12,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors();
+
 builder.Services.AddEntityFrameworkNpgsql()
     .AddDbContext<TasksSystemDBContext>(
         options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default"))
@@ -27,6 +29,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(c => 
+{
+    c.AllowAnyHeader();
+    c.AllowAnyMethod();
+    c.AllowAnyOrigin();
+});
 
 app.UseHttpsRedirection();
 
