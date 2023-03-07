@@ -1,7 +1,7 @@
-# Wa ToDolist Backend
+# Wa ToDolist Server
 
 ### Uma lista de afazeres feita com DotNet, EntityFramework e Postgresql .
-### Feita em conjunto com a api [wa-todolist-frontend](https://github.com/Feelpe/wa-todolist-frontend).
+### Feita em conjunto com a api [web-wa-todolist](https://github.com/Feelpe/web-wa-todolist).
 
 ## Executando o Projeto Localmente 
 
