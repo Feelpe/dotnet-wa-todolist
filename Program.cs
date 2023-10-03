@@ -14,10 +14,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors();
 
-builder.Services.AddEntityFrameworkNpgsql()
-    .AddDbContext<TasksSystemDBContext>(
-        options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default"))
-    );
+builder.Services.AddDbContext<TasksSystemDBContext>(options => 
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Default"))
+);
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
