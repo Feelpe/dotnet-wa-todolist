@@ -45,7 +45,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 4. Set up your PostgreSQL database.
 
-   - Modify the `appsettings.json` file with your database connection details or just left wall it is and use the docker compose database with the following code:
+   - Modify the `appsettings.json` file with your database connection details or just leave it how it is and use the docker compose database with the following code:
 
    ```docker
    docker compose up
